@@ -233,8 +233,7 @@ h1 em{color:var(--accent);font-style:italic;font-family:'Fraunces',serif;font-we
 <div class="page active" id="page-demo">
 
 <div class="g2 fu">
-  
- <!-- DRAWING PAD -->
+  <!-- DRAWING PAD -->
 <div class="panel">
   <div class="ph">
     <div class="pt"><span class="ic">✍️</span>Drawing Pad</div>
@@ -255,27 +254,43 @@ h1 em{color:var(--accent);font-style:italic;font-family:'Fraunces',serif;font-we
       <button class="btn pri" onclick="predictFromCanvas()">▶ Predict</button>
       <button class="btn dng" onclick="clearCanvas()">✕ Clear</button>
 
+      <!-- Brush size -->
+      <div class="brush">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+        </svg>
+        <input type="range" id="bs" min="6" max="32" value="16" title="Increase to 32px for best model accuracy"/>
+        <span id="bslbl">16px</span>
+      </div>
+
       <div class="tog-w" style="margin-left:auto">
         <span>Auto</span>
         <div class="tog on" id="autoTog" onclick="this.classList.toggle('on');autoP=this.classList.contains('on')"></div>
       </div>
     </div>
 
-  </div>
-</div>
-
-    <div class="ctrls">
-      <button class="btn pri" onclick="predictFromCanvas()">▶ Predict</button>
-      <button class="btn dng" onclick="clearCanvas()">✕ Clear</button>
-
-      <div class="tog-w" style="margin-left:auto">
-        <span>Auto</span>
-        <div class="tog on" id="autoTog" onclick="this.classList.toggle('on');autoP=this.classList.contains('on')"></div>
-      </div>
+    <div style="margin-top:10px;padding:8px;background:rgba(62,207,178,.08);border-radius:6px;border-left:3px solid var(--teal);font-size:9px;color:var(--text-mute);line-height:1.6">
+      <span style="color:var(--teal);font-weight:600">💡 Tip:</span> Set brush size to <strong style="color:var(--teal)">32px</strong> for best recognition accuracy (99.49%)
     </div>
-
   </div>
 </div>
+
+<!-- JS to set default brush size to 32px -->
+<script>
+window.addEventListener('load', () => {
+  const brushSlider = document.getElementById('bs');
+  const brushLabel = document.getElementById('bslbl');
+
+  brushSlider.value = 32;
+  brushLabel.textContent = '32px';
+
+  // If your canvas context exists, update line width
+  if (typeof ctx !== 'undefined') {
+    ctx.lineWidth = 32;
+  }
+});
+</script>
+ 
 
   <!-- CAMERA -->
   <div class="panel">
