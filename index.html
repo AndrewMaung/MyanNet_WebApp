@@ -234,7 +234,7 @@ h1 em{color:var(--accent);font-style:italic;font-family:'Fraunces',serif;font-we
 
 <div class="g2 fu">
   
-  <!-- DRAWING PAD -->
+ <!-- DRAWING PAD -->
 <div class="panel">
   <div class="ph">
     <div class="pt"><span class="ic">✍️</span>Drawing Pad</div>
@@ -250,6 +250,19 @@ h1 em{color:var(--accent);font-style:italic;font-family:'Fraunces',serif;font-we
         <p>Draw a Burmese digit 0–9</p>
       </div>
     </div>
+
+    <div class="ctrls">
+      <button class="btn pri" onclick="predictFromCanvas()">▶ Predict</button>
+      <button class="btn dng" onclick="clearCanvas()">✕ Clear</button>
+
+      <div class="tog-w" style="margin-left:auto">
+        <span>Auto</span>
+        <div class="tog on" id="autoTog" onclick="this.classList.toggle('on');autoP=this.classList.contains('on')"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <div class="ctrls">
       <button class="btn pri" onclick="predictFromCanvas()">▶ Predict</button>
