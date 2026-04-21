@@ -1,0 +1,12 @@
+{
+  "name": "myannet-burmese-digit-recognition",
+  "version": "1.0.0",
+  "description": "Lightweight CNN for Burmese digit recognition - Live demo with TensorFlow.js",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": ["tensorflow", "burmese", "digit-recognition", "cnn"],
+  "author": "Marwadi University - IEEE Research",
+  "license": "MIT"
+}
